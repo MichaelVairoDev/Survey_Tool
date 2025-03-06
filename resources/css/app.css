@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados */
+@layer components {
+    .glassmorphism {
+        @apply bg-white/10 backdrop-blur-md border border-white/20;
+    }
+
+    .hover-scale {
+        @apply transform transition-transform duration-200 hover:scale-105;
+    }
+
+    .card-shadow {
+        @apply shadow-lg hover:shadow-xl transition-shadow duration-200;
+    }
+
+    .gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-[#3674B5] to-[#00C4D4];
+    }
+
+    .button-primary {
+        @apply bg-[#3674B5] text-white hover:bg-[#00C4D4] transform hover:scale-105 transition-all duration-200;
+    }
+
+    .button-secondary {
+        @apply bg-white text-[#3674B5] hover:bg-[#A1E3F9] transform hover:scale-105 transition-all duration-200;
+    }
+}
+
+/* Animaciones personalizadas */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Estilos para el scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Personalización de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-[#3674B5] rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#00C4D4];
+}
+
+/* Ajustes de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
